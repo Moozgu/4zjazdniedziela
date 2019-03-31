@@ -56,18 +56,22 @@ public class Menu {
         String title = scanner.nextLine();
         System.out.println("Enter book's price");
         int price = 0;
-        while (price==0) {
+        boolean flag = true;
+        while (flag) {
             try {
                 price = Integer.parseInt(scanner.nextLine());
-            } catch (NumberFormatException e) {
+                flag=false;
+            } catch (NumberFormatException | NullPointerException e) {
                 System.out.println("Wrong input, try a number instead!");
             }
         }
         System.out.println("Enter book's pages amount");
         int pages = 0;
-        while(pages==0) {
+        flag=true;
+        while(flag) {
             try {
                 pages = Integer.parseInt(scanner.nextLine());
+                flag=false;
             } catch (NumberFormatException e) {
                 System.out.println("Wrong input, try a number instead!");
             }
