@@ -20,7 +20,12 @@ public class BookRepository {
         this.bookRepository.add(new Book ("ET",985,350));
         this.bookRepository.add(new Book ("Null",142,140));
         this.bookRepository.add(new Book ("Barbarians",324,16));
-        this.addBook(new Book ("Name of the WInd", 800,100));
+        this.addBook(new Book ("Name of the WInd", 800,100));  //worse method, as it requires calling another method. Then again, who adds this stuff in a constructor.
+    }
+    public void printRepository(){
+        for (Book book : this.bookRepository) {
+            System.out.println(book);
+        }
     }
 
     public void addBook(Book book){
@@ -34,8 +39,11 @@ public class BookRepository {
         return BookRepository.repositoryInstance;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "BookRepository {" +
+                "bookRepository=" + bookRepository +
+                '}';
+    }
 }
 
