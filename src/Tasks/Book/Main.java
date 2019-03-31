@@ -1,4 +1,4 @@
 package Tasks.Book;
 
-public class Book {
+public class Main {
 }
