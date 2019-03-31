@@ -2,6 +2,7 @@ package Tasks.Book.Data;
 
 import Tasks.Book.Model.Book;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,6 +38,34 @@ public class BookRepository {
 
         }
         return BookRepository.repositoryInstance;
+    }
+    public void sortBooks(Comparator c){                            //worse method, easy to break things by adding a silly comparator.
+        this.bookRepository.sort(c);
+    }
+
+    public void sortBooksByPages(){
+        Comparator c = new Comparator(){
+            @Override
+            public int compare(Object o, Object o1){
+                if (!(o instanceof Book)|| !(o1 instanceof Book)){
+                    return -1;
+                }
+                return ((Book)  o).getPages() - (((Book) o1).getPages());
+            }
+        };
+        this.bookRepository.sort(c);
+    }
+    public void sortBooksByPrice(){
+        Comparator c = new Comparator(){
+            @Override
+            public int compare(Object o, Object o1){
+                if (!(o instanceof Book)|| !(o1 instanceof Book)){
+                    return -1;
+                }
+                return ((Book)  o).getPrice() - (((Book) o1).getPrice());
+            }
+        };
+        this.bookRepository.sort(c);
     }
 
     @Override
