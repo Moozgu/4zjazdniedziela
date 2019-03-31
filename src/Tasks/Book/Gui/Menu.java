@@ -55,9 +55,23 @@ public class Menu {
         System.out.println("Enter book's tile");
         String title = scanner.nextLine();
         System.out.println("Enter book's price");
-        int  price = Integer.parseInt(scanner.nextLine());
+        int price = 0;
+        while (price==0) {
+            try {
+                price = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Wrong input, try a number instead!");
+            }
+        }
         System.out.println("Enter book's pages amount");
-        int  pages = Integer.parseInt(scanner.nextLine());
+        int pages = 0;
+        while(pages==0) {
+            try {
+                pages = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Wrong input, try a number instead!");
+            }
+        }
         return new Book(title,pages,price);
     }
 }
