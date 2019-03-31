@@ -67,6 +67,18 @@ public class BookRepository {
         };
         this.bookRepository.sort(c);
     }
+    public void sortBooksByTitle(){
+        Comparator c = new Comparator(){
+            @Override
+            public int compare(Object o, Object o1){
+                if (!(o instanceof Book)|| !(o1 instanceof Book)){
+                    return -1;
+                }
+                return ((Book)  o).getTitle().compareTo (((Book) o1).getTitle());
+            }
+        };
+        this.bookRepository.sort(c);
+    }
 
     @Override
     public String toString() {
